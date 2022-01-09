@@ -13,6 +13,6 @@ export class BusquedaService {
   }
   getDataLibro(): Observable<any> {
 
-    return this.http.get(`${this.URL}/librosRoures/busqueda`)
+    return this.http.get(`${this.URL}/libro/busqueda`)
   }
 }

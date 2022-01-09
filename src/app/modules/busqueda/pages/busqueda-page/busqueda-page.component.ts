@@ -23,7 +23,7 @@ export class BusquedaPageComponent implements OnInit {
   }
   async loadDataAll(): Promise<any> {
     this.listaLIbros2 = await this.libroService.getDataLibro().toPromise();
- 
+    console.log(this.listaLIbros2)
   }
   callSearch(nombre: string): void {
     if (nombre.length >= 2) {
@@ -39,7 +39,7 @@ export class BusquedaPageComponent implements OnInit {
       this.src='';
       this.src3='';
       this.listaLIbros = this.listaLIbros2.filter((item:any) => {
-        return item.fkautor.lastname.toLowerCase().includes(autor.toLowerCase());
+        return item.lastname.toLowerCase().includes(autor.toLowerCase());
       });
     }
   }
@@ -48,7 +48,7 @@ export class BusquedaPageComponent implements OnInit {
       this.src='';
       this.src2='';
       this.listaLIbros = this.listaLIbros2.filter((item:any) => {
-        return item.fkcategoria.name.toLowerCase().includes(cat.toLowerCase());
+        return item.names.toLowerCase().includes(cat.toLowerCase());
       });
     }
   }

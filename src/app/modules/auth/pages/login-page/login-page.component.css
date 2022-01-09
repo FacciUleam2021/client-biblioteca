@@ -2,8 +2,8 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: var(--color-4);
-    color: var(--color-3);
+    background-color: white;
+    color: black;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -102,6 +102,7 @@
     color: var(--color-4);
     margin: 1rem 0;
     background-color: #ff7a59;
+    border: solid 1px #ff7a59;
 }
 
 input.ng-invalid.ng-touched {

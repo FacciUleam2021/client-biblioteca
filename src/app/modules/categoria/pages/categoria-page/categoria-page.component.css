@@ -105,6 +105,7 @@
     color: var(--color-4);
     margin: 1rem 0;
     background-color: #ff7a59;
+    border: solid 1px #ff7a59;
 }
 
 input.ng-invalid.ng-touched {

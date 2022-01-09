@@ -10,9 +10,9 @@ export class CategoriaService {
   private readonly URL = environment.api
   constructor(private http: HttpClient) { }
 
-  sendFormCategoria(name: string): Observable<any> {
+  sendFormCategoria(names: string): Observable<any> {
     const body = {
-      name
+      names
     }
     return this.http.post(`${this.URL}/categoria`, body)
   }

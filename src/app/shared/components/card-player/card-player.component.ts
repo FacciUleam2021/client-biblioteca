@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CardPlayerComponent implements OnInit {
   @Input() mode: 'small' | 'big' = 'small'
-  @Input() track: TrackModel = { _id: 0, name: '',  url: '', link: '' };
+  @Input() track: TrackModel = { id: 0, name: '',  url: '', link: '' };
 
   constructor(private multimediaService: MultimediaService,   private router: Router) { }
 
@@ -17,7 +17,7 @@ export class CardPlayerComponent implements OnInit {
   }
 
   sendPlay(track: TrackModel): void {
-    this.router.navigate(['/', 'detalle'], { queryParams: { id: track._id} });
+    this.router.navigate(['/', 'detalle'], { queryParams: { id: track.id} });
   }
 
 }

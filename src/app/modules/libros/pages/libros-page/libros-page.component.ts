@@ -127,7 +127,7 @@ export class LibrosPageComponent implements OnInit {
       
       this.valorImagen = res.link;
       this.valorDocumento = res.documento
-      this.selectedCar = res.fkrelacionados.split('');
+      this.selectedCar = res.fkrelacionados.split(',');
       this.idk = true;
     });
   }
@@ -167,7 +167,7 @@ export class LibrosPageComponent implements OnInit {
   cargarimagenServer(file: any) {
     this.libroService.uploadFile(file).subscribe(
       (response: any) => {
-        this.valorImagen = 'http://localhost:3001/' + this.valorImagen2;
+        this.valorImagen = 'http://143.198.224.118/' + this.valorImagen2;
       },
       (error) => {
         console.log(error);
@@ -189,7 +189,7 @@ export class LibrosPageComponent implements OnInit {
   cargarimagenServer2(file: any) {
     this.libroService.uploadFile(file).subscribe(
       (response: any) => {
-        this.valorDocumento = 'http://localhost:3001/' + this.valorImagen3;
+        this.valorDocumento = 'http://143.198.224.118/' + this.valorImagen3;
       },
       (error) => {
         console.log(error);

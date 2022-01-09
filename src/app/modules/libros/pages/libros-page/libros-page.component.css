@@ -81,7 +81,7 @@
 }
 
 .form-group input {
-    border: solid 1px #e7e7e7;
+    border: solid 1px #505050;
     border-radius: var(--border-radius-1);
     height: 30px;
     padding: .25rem .5rem;
@@ -114,6 +114,7 @@
     color: var(--color-4);
     margin: 1rem 0;
     background-color: #ff7a59;
+    border: solid 1px #ff7a59;
 }
 
 input.ng-invalid.ng-touched {

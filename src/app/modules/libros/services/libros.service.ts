@@ -10,10 +10,10 @@ export class LibrosService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  private apiUploadUrl: string;
+  
   private readonly URL = environment.api
   constructor(private http: HttpClient) { 
-    this.apiUploadUrl = 'http://localhost:3001/api/1.0/uploadRoutes';
+   
   }
 
   sendFormLibro(params: any ): Observable<any> {
@@ -53,7 +53,7 @@ export class LibrosService {
   
     return this.http.request(new HttpRequest(
       'POST',
-      this.apiUploadUrl,
+      `${this.URL}/uploadRoutes`,
       formData,
       {
         reportProgress: true

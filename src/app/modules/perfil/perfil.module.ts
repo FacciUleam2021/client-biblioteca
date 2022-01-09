@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { PerfilRoutingModule } from './perfil-routing.module';
 import { PerfilPageComponent } from './pages/perfil-page/perfil-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { PerfilPageComponent } from './pages/perfil-page/perfil-page.component';
   ],
   imports: [
     CommonModule,
-    PerfilRoutingModule
+    PerfilRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class PerfilModule { }

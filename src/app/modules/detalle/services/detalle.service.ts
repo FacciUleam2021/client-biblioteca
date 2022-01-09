@@ -13,6 +13,6 @@ export class DetalleService {
     
   }
   getLibroById(id: string): Observable<any> {
-    return this.http.get(`${this.URL}/tracks/${id}`)
+    return this.http.get(`${this.URL}/libro/${id}`)
   }
 }

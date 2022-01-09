@@ -18,7 +18,7 @@ export class CategoriaPageComponent implements OnInit {
     this.formCategoria = new FormGroup(
       {
         id: new FormControl('', []),
-        name: new FormControl('', [
+        names: new FormControl('', [
           Validators.required,
           Validators.minLength(3),
             Validators.maxLength(40)
@@ -41,8 +41,8 @@ export class CategoriaPageComponent implements OnInit {
           console.log('error con autor');
         })
     }else{
-      const {name} = this.formCategoria.value
-      this.categoriaService.sendFormCategoria(name)
+      const {names} = this.formCategoria.value
+      this.categoriaService.sendFormCategoria(names)
       .subscribe(responseOk => { //TODO: Cuando el usuario credenciales Correctas ✔✔
       this.loadDataAll();
        this.formCategoria.reset();
@@ -68,7 +68,7 @@ export class CategoriaPageComponent implements OnInit {
       res => {
         console.log(res)
         this.formCategoria.controls["id"].setValue(res.id);
-        this.formCategoria.controls["name"].setValue(res.name);
+        this.formCategoria.controls["names"].setValue(res.names);
         
          this.idk=true
       },

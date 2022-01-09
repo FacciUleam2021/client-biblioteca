@@ -11,13 +11,13 @@
         <form (ngSubmit)="SendFormCategoria()" [formGroup]="formCategoria" class="login-auth-form" >
             <div class="form-group">
                 <label for="firstname">Nombres</label>
-                <input formControlName="name" type="text" placeholder="Nombre de categoria" class="form-input">
+                <input formControlName="names" type="text" placeholder="Nombre de categoria" class="form-input">
             </div>
            
            
             <div class="form-action">
                 <button [disabled]="formCategoria.invalid" class="login social-btn">{{idk ? " Actualizar" : "Guardar"}}</button> &nbsp;
-                <a (click)="formatear()" class="btn-fb social-btn" style="color: black; cursor: pointer;"><i class="uil uil-trash"></i></a>
+                <a (click)="formatear()" class="btn-fb social-btn" style="color: rgb(252, 248, 248); cursor: pointer;"><i class="uil uil-trash"></i></a>
             </div>
             
             <div class="separator"></div>
@@ -42,7 +42,7 @@
                 {{i}}
             </li>
             <li class="track-name-opacity">
-                {{items.name}}
+                {{items.names}}
             </li>
           
             <li class="track-name-opacity">

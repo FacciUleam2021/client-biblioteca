@@ -5,6 +5,6 @@ export interface TrackModel {
     
     link: string;
     url: string;
-    _id: string | number;
+    id: string | number;
     artist?: ArtistModel;
 }

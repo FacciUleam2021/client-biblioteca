@@ -1,34 +1,38 @@
 <div *ngIf="ifloaded">
-    <div class="play-list-header" >
+    <div class="play-list-header" style="background-color: white;">
+       
         <div class="cover">
             <div class="cover-mock">
                 <img src="{{data.link}}" height="250px" width="200px" alt="">
             </div>
         </div>
         <div class="content-text">
-            <button  (click)="regresar()" style="width: 100px; height: 40px;">REGRESAR</button>
+            <p>
+                <a  (click)="regresar()" style="width: 100px; height: 40px; cursor: pointer;"> <i class="uil uil-angle-left-b" style="font-size: 25px;"></i> REGRESAR</a>
+               
+            </p>
             <span style="font-size: 4rem;">{{data.name}}</span>
-            <span style="font-size:19px">Autor:: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;{{data.fkautor.lastname}} {{data.fkautor.firstname}}</span>
-            <span style="font-size:19px">Categoria::&nbsp; &nbsp; {{data.fkcategoria.name}}</span>
-            <span style="font-size:19px">Editorial:: &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;{{data.name}}</span>
+            <span style="font-size:19px">Autor:: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;{{data.lastname}} {{data.firstname}}</span>
+            <span style="font-size:19px">Categoria::&nbsp; &nbsp; {{data.names}}</span>
             <span style="font-size:19px">Fecha:: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;{{data.anio}}</span>
-            <h5 class="sub-title">Libros relacionados<span class="count-tracks">{{data.fkrelacionados.length}} Libros</span> </h5>
+            <h5 class="sub-title">Libros relacionados<span class="count-tracks">{{data.fkrelacionados}} Libros</span> </h5>
+            <a target="_blank" style="color:rgb(49, 48, 48)" href="{{data.documento}}">CLIC PARA MOSTRAR O DEACRGAR EL LIBRO</a>
         </div>
     </div>
  
-    <div class="section--generic">
+    <div class="section--generic" style="padding:7px">
         <h1 class="section--generic__title">Libros relacionados</h1>
     
-        <div class="section--generic__player--zone">
+        <div *ngIf="ifloaded2" class="section--generic__player--zone">
             <ul class="player--list card-big" >
-                <li *ngFor="let items of data.fkrelacionados; let i = index">
+                 <li *ngFor="let items of arrays; let i = index">
                     <div  class="card-player player-big">
     
                         <img src="{{items.link}}"  alt="" style="padding: 0;" class="cover">
                     
                         <div class="content-player">
-                            <div class="title-track">{{items.name}}</div>
-                            <div class="sub-title-track">{{items.anio}}</div>
+                            <div class="title-track" style="color:white">{{items.name}}</div>
+                            <div class="sub-title-track" style="color:rgb(202, 202, 202)">{{items.names}}</div>
                         </div>
                         <div class="buttons-player">
                             <button  *ngIf="true" class="play-btn">
@@ -40,7 +44,7 @@
                         </div>
                     </div>
                     
-                </li>
+                </li> 
             </ul>
         </div>
     </div>

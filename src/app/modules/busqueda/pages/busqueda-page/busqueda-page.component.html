@@ -19,11 +19,11 @@
                         <img src="{{items.link}}"  alt=""  class="cover">
                     
                         <div class="content-player">
-                            <div class="title-track">{{items.name}}( {{items.fkautor.lastname}})</div>
-                            <div class="sub-title-track">{{items.fkcategoria.name}}</div>
+                            <div class="title-track" style="color: white">{{items.name}}( {{items.lastname}})</div>
+                            <div class="sub-title-track" style="color:rgb(202, 202, 202)">{{items.names}}</div>
                         </div>
                         <div class="buttons-player">
-                            <button  (click)="nextTo(items._id)" *ngIf="true" class="play-btn">
+                            <button  (click)="nextTo(items.id)" *ngIf="true" class="play-btn">
                                 <i class="uil " [ngClass]="{'uil-play':true}"></i>
                             </button>
                             <button *ngIf="false" class="play-btn">

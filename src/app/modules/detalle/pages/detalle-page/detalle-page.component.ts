@@ -10,8 +10,11 @@ import {Location} from '@angular/common';
 })
 export class DetallePageComponent implements OnInit {
   order: any = [];
+  arrays: any = [];
   data: any = {};
   ifloaded = false;
+  ifloaded2 = false;
+  stringRealcionados= "";
   constructor(
     private libroService: DetalleService,
     private route: ActivatedRoute, private router: Router, private _location: Location
@@ -33,7 +36,28 @@ export class DetallePageComponent implements OnInit {
     this.libroService.getLibroById(id).subscribe((res) => {
       this.data = res;
       this.ifloaded = true;
+      this.stringRealcionados = res.fkrelacionados;
+      console.log(this.stringRealcionados)
+      this.createLibRelacionados(this.stringRealcionados)
     });
+    
+  }
+  createLibRelacionados(cadena: string){
+      if (cadena) {
+          var arreglo = cadena.split(',');
+          if (arreglo.length >0) {
+            
+            for (var i = 0; i < arreglo.length; i++){
+              this.libroService.getLibroById(arreglo[i]).subscribe((res) => {
+                this.arrays.push({id: res.id, name: res.name, names: res.names, link: res.link, documento: res.document});
+               
+              });
+            }
+            console.log(this.arrays)
+            this.ifloaded2 = true;
+          }
+         
+      }
   }
   regresar(){
     this._location.back();

@@ -12,6 +12,6 @@ export class PerfilService {
    
   }
   getAutorById(id: string): Observable<any> {
-    return this.http.get(`${this.URL}/auth/${id}`)
+    return this.http.get(`${this.URL}/accesos/${id}`)
   }
 }

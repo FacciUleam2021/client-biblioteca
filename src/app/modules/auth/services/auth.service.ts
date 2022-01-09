@@ -16,20 +16,20 @@ export class AuthService {
       email,
       password
     }
-    return this.http.post(`${this.URL}/auth/login`, body)
+    return this.http.post(`${this.URL}/accesos/login`, body)
   }
 
   sendFormRegister(email: string, password: string, username: string, age: string, name: string, img: string, status: string): Observable<any> {
     const body = {
-      email,
-      password,
       username,
-      age,
       name,
+      age,
+      email,
       img,
-      status
+      status,
+      password,
     }
-    return this.http.post(`${this.URL}/auth/register`, body)
+    return this.http.post(`${this.URL}/accesos/register`, body)
   }
 
   suma(a: number, b: number): number {
