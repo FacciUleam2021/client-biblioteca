@@ -101,7 +101,7 @@
 .login-auth-page .login-auth-form .form-action .login {
     color: var(--color-4);
     margin: 1rem 0;
-    background-color: var(--color-1);
+    background-color: #ff7a59;
 }
 
 input.ng-invalid.ng-touched {

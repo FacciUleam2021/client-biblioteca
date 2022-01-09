@@ -1,0 +1,147 @@
+<div>
+  <form (ngSubmit)="SendFormLIbros()" [formGroup]="formLibro" >
+    <div class="login-auth-page">
+      <div class="cover">
+        <div class="cover-mock">
+          <div *ngIf="valorImagen!='';else other_content">
+            <img src="{{valorImagen}}" height="80px" width="80px" alt="">
+          </div>
+          <ng-template #other_content>
+            <i class="uil uil-book-open"></i>
+          </ng-template>
+         
+        </div>
+      </div>
+      <div class="content-text">
+        <div class="form-group">
+          <label for="name">Titulo</label>
+          <input
+            formControlName="name"
+            type="text"
+            placeholder="Nombre de categoria"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Año</label>
+          <input
+            formControlName="anio"
+            type="date"
+            placeholder="Nombre de categoria"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Portada</label>
+
+          <input
+            type="file"
+            formControlName="link"
+            class="form-control-file"
+            id="exampleFormControlFile1"
+            (change)="onFileChanged($event)"
+          />
+        </div>
+      </div>
+      <div class="content-text" style="padding-left: 10px; width: 300px">
+        <div class="form-group">
+          <label for="name">Autor</label>
+          <select id="inputState" formControlName="fkautor" class="select-css">
+            <option selected disabled>Seleccionar autor</option>
+            <option *ngFor="let title of listaAutor" [value]="title.id">{{title.lastname}}</option>
+           
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Categoria</label>
+          <select id="inputState" formControlName="fkcategoria" class="select-css">
+            <option selected disabled>Seleccionar categoria</option>
+            <option *ngFor="let title of listaCat" [value]="title.id">{{title.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Editorial</label>
+          
+          <select id="inputState" formControlName="fkeditorial" class="select-css">
+            <option selected disabled>Seleccionar editorial</option>
+            <option *ngFor="let title of listaEditorial" [value]="title.id">{{title.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="content-text" style="margin-left: 10px; width: 300px">
+        <div class="form-group">
+          <label for="name">Documento</label>
+
+          <input
+            type="file"
+            formControlName="documento"
+            class="form-control-file"
+            id="exampleFormControlFile1"
+            (change)="onFileChanged2($event)"
+            
+          />
+        </div>
+        <div class="form-group" style="margin-bottom:0.5rem;">
+          <label for="name">Libros Relacionados</label>
+
+          <ng-select
+            [items]="listaLIbros"
+            bindLabel="name"
+            bindValue="id"
+            [multiple]="true"
+            [(ngModel)]="selectedCar" [ngModelOptions]="{standalone: true}"
+          >
+          </ng-select>
+        </div>
+
+        <div class="form-action" *ngIf="!ifload">
+          <button [disabled]="formLibro.invalid" class="login social-btn" style="margin:0px">
+            {{ idk ? " Actualizar" : "Guardar" }}
+          </button>
+          &nbsp;
+          <a
+            (click)="formatear()"
+            style="color: rgb(250, 250, 250); cursor: pointer; font-size: 27px"
+            ><i class="uil uil-trash"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="oderbody">
+  <h1 class="section--generic__title">Lista autores</h1>
+  <div class="play-list-body">
+    <ul class="play-list-table-header">
+      <li>Número</li>
+      <li>Título</li>
+      <li>Fecha</li>
+      
+      <li>Actions</li>
+    </ul>
+    <ul class="play-list-rows" *ngFor="let items of listaLIbros; let i = index">
+      <li class="track-name">
+         <img src="{{ items.link }}" height="40px" alt=""> &nbsp;
+         <span>{{ items.name }}</span>
+         
+      </li>
+      <li class="track-name-opacity">
+        {{ items.name }}
+      </li>
+      <li class="track-name-opacity">
+        {{ items.anio }}
+      </li>
+     
+      <li class="track-name">
+        <button (click)="receiveData(items.id)" class="btn btn-primary">
+          Editar
+        </button>
+        &nbsp;
+        <button (click)="deleteData(items.id)" class="btn btn-danger">
+          Remove
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

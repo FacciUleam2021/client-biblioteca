@@ -1,0 +1,39 @@
+<div style="padding:15px">
+    <div class="search-component containers">
+        <input (ngModelChange)="callSearch($event)" [(ngModel)]="src" type="text" placeholder="Buscar por nombre">
+       
+        <input (ngModelChange)="callSearchAutor($event)" [(ngModel)]="src2" type="text" placeholder="Buscar por autor">
+
+        <input (ngModelChange)="callSearchCategory($event)" [(ngModel)]="src3" type="text" placeholder="Buscar por categoria">
+       
+    </div>
+   
+    <div class="section--generic">
+        <h1 class="section--generic__title">Resultado</h1>
+    
+        <div class="section--generic__player--zone">
+            <ul class="player--list card-big" >
+                <li *ngFor="let items of listaLIbros; let i = index">
+                    <div  class="card-player player-big">
+    
+                        <img src="{{items.link}}"  alt=""  class="cover">
+                    
+                        <div class="content-player">
+                            <div class="title-track">{{items.name}}( {{items.fkautor.lastname}})</div>
+                            <div class="sub-title-track">{{items.fkcategoria.name}}</div>
+                        </div>
+                        <div class="buttons-player">
+                            <button  (click)="nextTo(items._id)" *ngIf="true" class="play-btn">
+                                <i class="uil " [ngClass]="{'uil-play':true}"></i>
+                            </button>
+                            <button *ngIf="false" class="play-btn">
+                                <i class="uil uil-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -32,7 +32,7 @@ export class TrackService {
    * @returns 
    */
   getAllTracks$(): Observable<any> {
-    return this.http.get(`${this.URL}/tracks`)
+    return this.http.get(`${this.URL}/libro/home`)
       .pipe(
         map(({ data }: any) => {
           return data
@@ -46,7 +46,7 @@ export class TrackService {
    * @returns Devolver canciones random
    */
   getAllRandom$(): Observable<any> {
-    return this.http.get(`${this.URL}/tracks`)
+    return this.http.get(`${this.URL}/libro/home`)
       .pipe(
         mergeMap(({ data }: any) => this.skipById(data, 2)),
         // map((dataRevertida) => { //TODO aplicar un filter comun de array

@@ -1,0 +1,55 @@
+<div class="login-auth-page">
+    <div class="cover">
+        <div class="cover-mock">
+            <i class="uil uil-user-plus"></i>
+        </div>
+    </div>
+  
+    
+    <div class="login-auth-wrapper">
+        <h2 class="section--generic__title">Categorias</h2>
+        <form (ngSubmit)="SendFormCategoria()" [formGroup]="formCategoria" class="login-auth-form" >
+            <div class="form-group">
+                <label for="firstname">Nombres</label>
+                <input formControlName="name" type="text" placeholder="Nombre de categoria" class="form-input">
+            </div>
+           
+           
+            <div class="form-action">
+                <button [disabled]="formCategoria.invalid" class="login social-btn">{{idk ? " Actualizar" : "Guardar"}}</button> &nbsp;
+                <a (click)="formatear()" class="btn-fb social-btn" style="color: black; cursor: pointer;"><i class="uil uil-trash"></i></a>
+            </div>
+            
+            <div class="separator"></div>
+        </form>
+    </div>
+    
+    
+</div>
+<div class="oderbody">
+    <h1 class="section--generic__title">Lista autores</h1>
+    <div class="play-list-body" >
+        <ul class="play-list-table-header">
+
+            <li >Número </li>
+            <li>Nombres de categoria </li>
+           
+            <li>Actions </li>
+        </ul>
+        <ul class="play-list-rows" *ngFor="let items of listaCategoria; let i = index">
+
+            <li class="track-name-opacity">
+                {{i}}
+            </li>
+            <li class="track-name-opacity">
+                {{items.name}}
+            </li>
+          
+            <li class="track-name-opacity">
+                <button (click)="receiveData(items.id)" class="btn btn-primary">Editar</button>  &nbsp;
+                <button (click)="deleteData(items.id)" class="btn btn-danger">Remove</button>
+            </li>
+        </ul>
+    </div>
+</div>
+

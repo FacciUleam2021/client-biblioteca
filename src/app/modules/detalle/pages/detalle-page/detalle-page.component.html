@@ -1,0 +1,48 @@
+<div *ngIf="ifloaded">
+    <div class="play-list-header" >
+        <div class="cover">
+            <div class="cover-mock">
+                <img src="{{data.link}}" height="250px" width="200px" alt="">
+            </div>
+        </div>
+        <div class="content-text">
+            <button  (click)="regresar()" style="width: 100px; height: 40px;">REGRESAR</button>
+            <span style="font-size: 4rem;">{{data.name}}</span>
+            <span style="font-size:19px">Autor:: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;{{data.fkautor.lastname}} {{data.fkautor.firstname}}</span>
+            <span style="font-size:19px">Categoria::&nbsp; &nbsp; {{data.fkcategoria.name}}</span>
+            <span style="font-size:19px">Editorial:: &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;{{data.name}}</span>
+            <span style="font-size:19px">Fecha:: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;{{data.anio}}</span>
+            <h5 class="sub-title">Libros relacionados<span class="count-tracks">{{data.fkrelacionados.length}} Libros</span> </h5>
+        </div>
+    </div>
+ 
+    <div class="section--generic">
+        <h1 class="section--generic__title">Libros relacionados</h1>
+    
+        <div class="section--generic__player--zone">
+            <ul class="player--list card-big" >
+                <li *ngFor="let items of data.fkrelacionados; let i = index">
+                    <div  class="card-player player-big">
+    
+                        <img src="{{items.link}}"  alt="" style="padding: 0;" class="cover">
+                    
+                        <div class="content-player">
+                            <div class="title-track">{{items.name}}</div>
+                            <div class="sub-title-track">{{items.anio}}</div>
+                        </div>
+                        <div class="buttons-player">
+                            <button  *ngIf="true" class="play-btn">
+                                <i class="uil " [ngClass]="{'uil-play':true}"></i>
+                            </button>
+                            <button *ngIf="false" class="play-btn">
+                                <i class="uil uil-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

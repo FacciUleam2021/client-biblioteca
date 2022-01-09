@@ -25,7 +25,7 @@ export class InjectSessionInterceptor implements HttpInterceptor {
           }
         }
       )
-
+     // window.location.reload(true);
       return next.handle(newRequest);
 
     } catch (e) {

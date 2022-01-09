@@ -1,0 +1,59 @@
+<div class="login-auth-page">
+    <div class="cover">
+        <div class="cover-mock">
+            <i class="uil uil-user-plus"></i>
+        </div>
+    </div>
+  
+    
+    <div class="login-auth-wrapper">
+        <h2 class="section--generic__title">Ingresar o actualizar un autor</h2>
+        <form (ngSubmit)="SendFormAutor()" [formGroup]="formAutor" class="login-auth-form" >
+            <div class="form-group">
+                <label for="firstname">Nombres</label>
+                <input formControlName="firstname" type="text" placeholder="Sus nombres" class="form-input">
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label for="lastname">Apellidos </label>
+                <input formControlName="lastname" type="text" placeholder="Sus apellidos" class="form-input">
+            </div>
+           
+            <div class="form-action">
+                <button [disabled]="formAutor.invalid" class="login social-btn">{{idk ? " Actualizar" : "Guardar"}}</button> &nbsp;
+                <a (click)="formatear()" class="btn-fb social-btn" style="color: black; cursor: pointer;"><i class="uil uil-trash"></i></a>
+            </div>
+            
+            <div class="separator"></div>
+        </form>
+    </div>
+    
+    
+</div>
+<div class="oderbody">
+    <h1 class="section--generic__title">Lista autores</h1>
+    <div class="play-list-body" >
+        <ul class="play-list-table-header">
+
+            <li >Número </li>
+            <li>Nombres </li>
+            <li>Apellidos </li>
+            <li>Actions </li>
+        </ul>
+        <ul class="play-list-rows" *ngFor="let items of listaAutores; let i = index">
+
+            <li class="track-name-opacity">
+                {{i}}
+            </li>
+            <li class="track-name-opacity">
+                {{items.firstname}}
+            </li>
+            <li class="track-name-opacity">
+                {{items.lastname}}
+            </li>
+            <li class="track-name-opacity">
+                <button (click)="receiveData(items.id)" class="btn btn-primary">Editar</button>  &nbsp;
+                <button (click)="deleteData(items.id)" class="btn btn-danger">Remove</button>
+            </li>
+        </ul>
+    </div>
+</div>

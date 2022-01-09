@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-
+  optionsBar: String = '';
+  optionsAvatar: String = '';
+  optionsFullName: String = ''
   mainMenu: {
     defaultOptions: Array<any>, accessLink: Array<any>
   } = { defaultOptions: [], accessLink: [] }
@@ -17,34 +19,69 @@ export class SideBarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    const info = JSON.parse(localStorage.getItem('data-person')!);
+    if (info) {
+      this.optionsBar = info.role;
+      this.optionsAvatar = info.img;
+      this.optionsFullName = info.nombre;
+     
+    }
+    
     this.mainMenu.defaultOptions = [
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/', 'auth']
+        router: ['/', 'tracks']
       },
       {
-        name: 'Buscar',
+        name: 'Buscar libro',
         icon: 'uil uil-search',
-        router: ['/', 'history']
+        router: ['/', 'busqueda']
       },
       {
         name: 'Tu biblioteca',
         icon: 'uil uil-chart',
         router: ['/', 'favorites'],
         query: { hola: 'mundo' }
+      },
+      {
+        name: 'Perfil',
+        icon: 'uil-user',
+        router: ['/', 'perfil']
+      },
+      {
+        name: 'Cerrar sesión',
+        icon: 'uil-toggle-off',
+        router: ['/', 'auth']
       }
     ]
 
     this.mainMenu.accessLink = [
       {
-        name: 'Crear lista',
-        icon: 'uil-plus-square'
+        name: 'Autores',
+        icon: 'uil-plus-square',
+        router: ['/', 'autores'],
       },
       {
-        name: 'Canciones que te gustan',
-        icon: 'uil-heart-medical'
-      }
+        name: 'Categorias',
+        icon: 'uil-plus-square',
+        router: ['/', 'categorias'],//
+      },
+      {
+        name: 'Editorial',
+        icon: 'uil-plus-square',
+        router: ['/', 'editorial'],//
+      },
+      {
+        name: 'Crear libro',
+        icon: 'uil-heart-medical',
+        router: ['/', 'libros'],//
+      },
+      {
+        name: 'Lista de Usuarios',
+        icon: 'uil-user-arrows'
+      },
+      
     ]
 
     this.customOptions = [
@@ -62,6 +99,10 @@ export class SideBarComponent implements OnInit {
       },
       {
         name: 'Mi lista º4',
+        router: ['/']
+      },
+      {
+        name: 'Mi lista º5',
         router: ['/']
       }
     ]

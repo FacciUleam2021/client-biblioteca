@@ -23,7 +23,6 @@ export class TracksPageComponent implements OnInit, OnDestroy {
 
   async loadDataAll(): Promise<any> {
     this.tracksTrending = await this.trackService.getAllTracks$().toPromise()
-
   }
 
   loadDataRandom(): void {

@@ -6,14 +6,17 @@ import { AppComponent } from './app.component';
 import { CookieService } from 'ngx-cookie-service';
 import { InjectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
 
+
+
 @NgModule({
   declarations: [ //TODO: Declaraciones, componentes, directivas, pipes
-    AppComponent,
+    AppComponent, 
   ],
   imports: [ //TODO: Solo se importan otros modules
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+   
   ],
   providers: [
     CookieService,
